@@ -140,27 +140,5 @@ class OrderRepository extends AbstractRepository
                            ->groupBy('status')
                            ->pluck('total','status')
                            ->all();
-    }
-
-    public function clear($id)
-    {
-        $data = $this->model->find($id);
-
-        if (blank($data)) {
-            Session::flash('error', 'Dữ liệu không tìm thấy !');
-        }
-
-        DB::beginTransaction();
-        try {
-            $data->detail_orders()->delete();
-            $data->delete();
-
-            DB::commit();
-            Session::flash('success', 'Xóa thành công !');
-        } catch (Exception $e) {
-            DB::rollBack();
-            Session::flash('error', 'Xóa thất bại !');
-        }
-
-    }
+    }  
 }

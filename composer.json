@@ -25,7 +25,8 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "phpunit/phpunit": "^9.3.3",
+        "heroku/heroku-buildpack-php" : "dev-master"
     },
     "autoload": {
         "psr-4": {
@@ -65,9 +66,5 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "post-install-cmd": [
-        "php artisan clear-compiled",
-        "chmod -R 775 public/"
-    ]
+    "prefer-stable": true
 }
