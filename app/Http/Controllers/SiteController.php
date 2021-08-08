@@ -48,7 +48,7 @@ class SiteController extends Controller
         if (!$request->has('name')) {
             return redirect()->route('site.home');
         }
-
+        dd($this->siteService->search($request->name));
         return view('site.search')->with([
             'products' => $this->siteService->search($request->name),
         ]);

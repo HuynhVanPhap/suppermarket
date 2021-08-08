@@ -38,8 +38,12 @@
                     <div class="clearfix"> </div>
                 </div>
             </div>
-
-            @include('site.layouts.search-products')
+     
+            @if (!blank($products))
+                @include('site.layouts.search-products')
+            @else
+                <p>Not found</p>
+            @endif
 
             @if (!blank($products))
                 {!! $products->appends(Request::all())->links('site.helpers.paginate') !!}    
